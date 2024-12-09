@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { TrendingUp } from 'lucide-react';
-import { selectMetalPrices } from '../../store/slices/metalPricesSlice';
+import { selectMetalPrices } from '@slices/metalPricesSlice';
 
 export default function MetalPrices() {
   const { gold, silver } = useSelector(selectMetalPrices);
