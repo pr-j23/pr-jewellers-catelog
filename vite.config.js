@@ -5,9 +5,5 @@ export default defineConfig({
   plugins: [react()],
   optimizeDeps: {
     exclude: ['lucide-react'],
-  }, resolve: {
-    alias: {
-      '@slices': '/src/store/slices', 
-    },
   },
 });
