@@ -1,12 +1,8 @@
+import { thunk } from 'redux-thunk';
 import { configureStore } from '@reduxjs/toolkit';
-import productsReducer from './slices/productsSlice';
-import metalPricesSlice from './slices/metalPricesSlice';
-import cartReducer from './slices/cartSlice';
+import { rootReducer } from './reducers';
 
 export const store = configureStore({
-  reducer: {
-    products: productsReducer,
-    metalPrices: metalPricesSlice,
-    cart: cartReducer,
-  },
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware)=>getDefaultMiddleware().concat(thunk)
 });
