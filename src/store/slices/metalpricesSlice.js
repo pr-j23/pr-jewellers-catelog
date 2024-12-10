@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  gold: 2023.50,
+  gold: 2023.5,
   silver: 23.75,
   lastUpdated: new Date().toISOString(),
 };

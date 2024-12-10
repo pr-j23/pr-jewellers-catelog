@@ -3,20 +3,23 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1920",
-    title: "Luxury Collection 2024",
-    description: "Discover our newest arrivals"
+    image:
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1920',
+    title: 'Luxury Collection 2024',
+    description: 'Discover our newest arrivals',
   },
   {
-    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1920",
-    title: "Timeless Elegance",
-    description: "Handcrafted with precision"
+    image:
+      'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1920',
+    title: 'Timeless Elegance',
+    description: 'Handcrafted with precision',
   },
   {
-    image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1920",
-    title: "Diamond Collection",
-    description: "Pure brilliance in every piece"
-  }
+    image:
+      'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1920',
+    title: 'Diamond Collection',
+    description: 'Pure brilliance in every piece',
+  },
 ];
 
 export default function Carousel() {
@@ -30,7 +33,8 @@ export default function Carousel() {
   }, []);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const prevSlide = () =>
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
     <div className="relative h-[500px] overflow-hidden">
@@ -55,7 +59,7 @@ export default function Carousel() {
           </div>
         </div>
       ))}
-      
+
       <button
         onClick={prevSlide}
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 p-2 rounded-full hover:bg-black/50 transition-colors"
@@ -68,7 +72,7 @@ export default function Carousel() {
       >
         <ChevronRight className="h-6 w-6 text-white" />
       </button>
-      
+
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
         {slides.map((_, index) => (
           <button

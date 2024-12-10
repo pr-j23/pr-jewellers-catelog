@@ -7,29 +7,33 @@ const categories = [
     name: 'Rings',
     icon: Watch,
     description: 'Engagement rings, wedding bands, and fashion rings',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800'
+    image:
+      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800',
   },
   {
     id: 2,
     name: 'Necklaces',
     icon: Crown,
     description: 'Pendants, chains, and statement necklaces',
-    image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=800'
+    image:
+      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=800',
   },
   {
     id: 3,
     name: 'Watches',
     icon: Watch,
     description: 'Luxury timepieces and smart watches',
-    image: 'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800'
+    image:
+      'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800',
   },
   {
     id: 4,
     name: 'Gemstones',
     icon: GemIcon,
     description: 'Precious and semi-precious stones',
-    image: 'https://images.unsplash.com/photo-1583937443351-f97a79a8686c?auto=format&fit=crop&w=800'
-  }
+    image:
+      'https://images.unsplash.com/photo-1583937443351-f97a79a8686c?auto=format&fit=crop&w=800',
+  },
 ];
 
 export default function Category() {
@@ -40,7 +44,10 @@ export default function Category() {
         {categories.map((category) => {
           const IconComponent = category.icon;
           return (
-            <div key={category.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div
+              key={category.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden"
+            >
               <div className="relative h-64">
                 <img
                   src={category.image}

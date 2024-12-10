@@ -1,5 +1,13 @@
 import React from 'react';
-import { MapPin, Phone, Clock, Mail, Instagram, Facebook, MessageCircleMore } from 'lucide-react';
+import {
+  MapPin,
+  Phone,
+  Clock,
+  Mail,
+  Instagram,
+  Facebook,
+  MessageCircleMore,
+} from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -9,12 +17,19 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-serif mb-4">Luxe Jewels</h3>
             <div className="space-y-3">
-              <p className="flex items-center"><MapPin className="h-5 w-5 mr-2" /> 123 Luxury Lane, Beverly Hills</p>
-              <p className="flex items-center"><Phone className="h-5 w-5 mr-2" /> +1 (555) 123-4567</p>
-              <p className="flex items-center"><Mail className="h-5 w-5 mr-2" /> contact@luxejewels.com</p>
+              <p className="flex items-center">
+                <MapPin className="h-5 w-5 mr-2" /> 123 Luxury Lane, Beverly
+                Hills
+              </p>
+              <p className="flex items-center">
+                <Phone className="h-5 w-5 mr-2" /> +1 (555) 123-4567
+              </p>
+              <p className="flex items-center">
+                <Mail className="h-5 w-5 mr-2" /> contact@luxejewels.com
+              </p>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-xl font-serif mb-4">Hours</h3>
             <div className="space-y-3">
@@ -41,7 +56,9 @@ export default function Footer() {
               </a>
             </div>
             <div className="mt-6">
-              <h4 className="text-sm font-semibold mb-2">Subscribe to our newsletter</h4>
+              <h4 className="text-sm font-semibold mb-2">
+                Subscribe to our newsletter
+              </h4>
               <div className="flex">
                 <input
                   type="email"
@@ -55,9 +72,11 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        
+
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Luxe Jewels. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Luxe Jewels. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

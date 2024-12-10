@@ -12,7 +12,9 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
             <GemIcon className="h-8 w-8 text-purple-600" />
-            <span className="ml-2 text-xl font-serif font-semibold">PR Jewellers</span>
+            <span className="ml-2 text-xl font-serif font-semibold">
+              PR Jewellers
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
