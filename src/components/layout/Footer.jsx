@@ -10,10 +10,21 @@ import {
   PhoneCall,
 } from "lucide-react";
 import { TbDeviceLandlinePhone } from "react-icons/tb";
+import {
+  landlineNumber,
+  mobileNumber,
+  shopAddress,
+  shopEmailId,
+  shopOpenTime,
+} from "../../mockData";
 
 export default function Footer() {
   const handleMapClick = () => {
     window.open("https://maps.app.goo.gl/o8qayPeMpNYDTNZ49", "_blank");
+  };
+
+  const handleMailClick = () => {
+    window.location.href = "mailto:pavanjeweller@gmail.com";
   };
 
   return (
@@ -24,18 +35,26 @@ export default function Footer() {
             <h3 className="text-xl font-serif mb-4">Pavan Jewellers</h3>
             <div className="space-y-3">
               <p className="flex items-center">
-                <MapPin onClick={handleMapClick} className="h-5 w-5 mr-2 cursor-pointer" />{" "}
-                21-3-88, Chelapuara, Ghansi Bazar, Hyderabad 500 002
+                <MapPin
+                  className="h-5 w-5 mr-2 cursor-pointer"
+                  onClick={handleMapClick}
+                />
+                <span className="text-balance	">{shopAddress}</span>
               </p>
               <p className="flex items-center">
-                <TbDeviceLandlinePhone className="h-5 w-5 mr-2" /> Landline:
-                040-66514933
+                <TbDeviceLandlinePhone className="h-5 w-5 mr-2" />
+                <span>{landlineNumber}</span>
               </p>
               <p className="flex items-center">
-                <Phone className="h-5 w-5 mr-2" /> Mobile: +91 630-417-0035
+                <Phone className="h-5 w-5 mr-2" />
+                <span>{mobileNumber}</span>
               </p>
               <p className="flex items-center">
-                <Mail className="h-5 w-5 mr-2" /> pavanjeweller@gmail.com
+                <Mail
+                  className="h-5 w-5 mr-2 cursor-pointer"
+                  onClick={handleMailClick}
+                />
+                <span>{shopEmailId}</span>
               </p>
             </div>
           </div>
@@ -45,10 +64,9 @@ export default function Footer() {
             <div className="space-y-3">
               <p className="flex items-center">
                 <Clock className="h-5 w-5 mr-2" />
-                Mon - Fri: 10:00 AM - 8:00 PM
+                <span>{shopOpenTime.weekDays}</span>
               </p>
-              <p className="ml-7">Sat: 10:00 AM - 6:00 PM</p>
-              <p className="ml-7">Sun: 12:00 PM - 5:00 PM</p>
+              <p className="ml-7">{shopOpenTime.weekend}</p>
             </div>
           </div>
 
