@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   MapPin,
   Phone,
@@ -7,25 +7,35 @@ import {
   Instagram,
   Facebook,
   MessageCircleMore,
-} from 'lucide-react';
+  PhoneCall,
+} from "lucide-react";
+import { TbDeviceLandlinePhone } from "react-icons/tb";
 
 export default function Footer() {
+  const handleMapClick = () => {
+    window.open("https://maps.app.goo.gl/o8qayPeMpNYDTNZ49", "_blank");
+  };
+
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-serif mb-4">Luxe Jewels</h3>
+            <h3 className="text-xl font-serif mb-4">Pavan Jewellers</h3>
             <div className="space-y-3">
               <p className="flex items-center">
-                <MapPin className="h-5 w-5 mr-2" /> 123 Luxury Lane, Beverly
-                Hills
+                <MapPin onClick={handleMapClick} className="h-5 w-5 mr-2 cursor-pointer" />{" "}
+                21-3-88, Chelapuara, Ghansi Bazar, Hyderabad 500 002
               </p>
               <p className="flex items-center">
-                <Phone className="h-5 w-5 mr-2" /> +1 (555) 123-4567
+                <TbDeviceLandlinePhone className="h-5 w-5 mr-2" /> Landline:
+                040-66514933
               </p>
               <p className="flex items-center">
-                <Mail className="h-5 w-5 mr-2" /> contact@luxejewels.com
+                <Phone className="h-5 w-5 mr-2" /> Mobile: +91 630-417-0035
+              </p>
+              <p className="flex items-center">
+                <Mail className="h-5 w-5 mr-2" /> pavanjeweller@gmail.com
               </p>
             </div>
           </div>
