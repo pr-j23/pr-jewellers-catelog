@@ -32,7 +32,7 @@ export default function ProductCard({ product }) {
             <span>{product.price.toLocaleString()}</span>
           </div>
         </div>
-        <button 
+        <button
           onClick={handleAddToCart}
           className="mt-4 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors"
         >

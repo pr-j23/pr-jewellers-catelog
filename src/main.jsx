@@ -6,8 +6,7 @@ import { store } from './store';
 import App from './App';
 import './index.css';
 
-const root = createRoot(document.getElementById('root'));
-root.render(
+createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <BrowserRouter>
       <App />

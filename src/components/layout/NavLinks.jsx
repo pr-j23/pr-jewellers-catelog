@@ -6,7 +6,7 @@ const navItems = [
   { label: 'Products', path: '/products' },
   { label: 'Category', path: '/category' },
   { label: 'About', path: '/about' },
-  { label: 'Contact Us', path: '/contact' }
+  { label: 'Contact Us', path: '/contact' },
 ];
 
 export default function NavLinks({ className = '' }) {

@@ -5,23 +5,27 @@ const features = [
   {
     icon: Award,
     title: 'Expert Craftsmanship',
-    description: 'Each piece is meticulously crafted by our master jewelers with decades of experience.'
+    description:
+      'Each piece is meticulously crafted by our master jewelers with decades of experience.',
   },
   {
     icon: Shield,
     title: 'Quality Assurance',
-    description: 'All our jewelry pieces undergo rigorous quality checks and come with certification.'
+    description:
+      'All our jewelry pieces undergo rigorous quality checks and come with certification.',
   },
   {
     icon: Heart,
     title: 'Customer Satisfaction',
-    description: 'We pride ourselves on providing exceptional service and building lasting relationships.'
+    description:
+      'We pride ourselves on providing exceptional service and building lasting relationships.',
   },
   {
     icon: Users,
     title: 'Family Legacy',
-    description: 'Three generations of jewelry expertise, serving our community since 1970.'
-  }
+    description:
+      'Three generations of jewelry expertise, serving our community since 1970.',
+  },
 ];
 
 export default function About() {
@@ -30,8 +34,9 @@ export default function About() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-serif mb-4">About Luxe Jewels</h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          For over 50 years, we've been crafting timeless pieces that celebrate life's most precious moments.
-          Our commitment to excellence and attention to detail has made us a trusted name in fine jewelry.
+          For over 50 years, we've been crafting timeless pieces that celebrate
+          life's most precious moments. Our commitment to excellence and
+          attention to detail has made us a trusted name in fine jewelry.
         </p>
       </div>
 
@@ -46,14 +51,16 @@ export default function About() {
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl font-serif mb-6">Our Story</h2>
           <p className="text-gray-600 mb-4">
-            Founded in 1970, Luxe Jewels began as a small family workshop with a passion for creating
-            beautiful, handcrafted jewelry. Today, we continue that tradition of excellence, combining
-            time-honored techniques with modern innovation.
+            Founded in 1970, Luxe Jewels began as a small family workshop with a
+            passion for creating beautiful, handcrafted jewelry. Today, we
+            continue that tradition of excellence, combining time-honored
+            techniques with modern innovation.
           </p>
           <p className="text-gray-600">
-            Our team of master craftsmen and certified gemologists work together to create pieces that
-            not only capture the eye but also tell a story. Each creation is a testament to our
-            dedication to quality and our love for the art of jewelry making.
+            Our team of master craftsmen and certified gemologists work together
+            to create pieces that not only capture the eye but also tell a
+            story. Each creation is a testament to our dedication to quality and
+            our love for the art of jewelry making.
           </p>
         </div>
       </div>
@@ -62,7 +69,10 @@ export default function About() {
         {features.map((feature, index) => {
           const IconComponent = feature.icon;
           return (
-            <div key={index} className="text-center p-6 bg-white rounded-lg shadow-lg">
+            <div
+              key={index}
+              className="text-center p-6 bg-white rounded-lg shadow-lg"
+            >
               <IconComponent className="h-12 w-12 text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-serif mb-2">{feature.title}</h3>
               <p className="text-gray-600">{feature.description}</p>
