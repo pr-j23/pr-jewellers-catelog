@@ -1,26 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { slides } from '../../mockData';
 
-const slides = [
-  {
-    image:
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1920',
-    title: 'Luxury Collection 2024',
-    description: 'Discover our newest arrivals',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1920',
-    title: 'Timeless Elegance',
-    description: 'Handcrafted with precision',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?auto=format&fit=crop&w=1920',
-    title: 'Diamond Collection',
-    description: 'Pure brilliance in every piece',
-  },
-];
 
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
