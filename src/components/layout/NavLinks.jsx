@@ -1,21 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const navItems = [
-  { label: 'Home', path: '/' },
-  { label: 'Products', path: '/products' },
-  { label: 'Category', path: '/category' },
-  { label: 'About', path: '/about' },
-  { label: 'Contact Us', path: '/contact' },
+  { label: "Home", path: "/" },
+  { label: "Products", path: "/products" },
+  { label: "Category", path: "/category" },
+  { label: "About", path: "/about" },
+  { label: "Contact Us", path: "/contact" },
 ];
 
-export default function NavLinks({ className = '' }) {
+export default function NavLinks({ className = "" }) {
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       {navItems.map((item) => (
         <Link
           key={item.label}
           to={item.path}
+          onClick={handleScrollToTop}
           className={`${className} text-gray-600 hover:text-purple-600 transition-colors`}
         >
           {item.label}
