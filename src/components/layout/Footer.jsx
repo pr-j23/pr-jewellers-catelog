@@ -16,6 +16,7 @@ import {
   shopAddress,
   shopEmailId,
   shopOpenTime,
+  whatAppNumber,
 } from "../../mockData";
 
 export default function Footer() {
@@ -36,7 +37,7 @@ export default function Footer() {
             <div className="space-y-3">
               <p className="flex items-center">
                 <MapPin
-                  className="h-5 w-5 mr-2 cursor-pointer"
+                  className="w-7 mr-2 cursor-pointer"
                   onClick={handleMapClick}
                 />
                 <span className="text-balance	">{shopAddress}</span>
@@ -73,17 +74,27 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-serif mb-4">Connect With Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-purple-400 transition-colors">
+              <a
+                href="https://www.instagram.com/pavanjewellers/"
+                className="hover:text-purple-400 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Instagram className="h-6 w-6" />
               </a>
               <a href="#" className="hover:text-purple-400 transition-colors">
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="hover:text-purple-400 transition-colors">
+              <a
+                href={`https://wa.me/${whatAppNumber}`}
+                className="hover:text-purple-400 transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <MessageCircleMore className="h-6 w-6" />
               </a>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 hidden">
               <h4 className="text-sm font-semibold mb-2">
                 Subscribe to our newsletter
               </h4>
@@ -103,7 +114,8 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
           <p>
-            &copy; {new Date().getFullYear()} Luxe Jewels. All rights reserved.
+            &copy; {new Date().getFullYear()} Pavan Jewellers. All rights
+            reserved.
           </p>
         </div>
       </div>

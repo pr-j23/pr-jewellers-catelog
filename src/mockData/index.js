@@ -82,6 +82,43 @@ export const mockProducts = [
   },
 ];
 
+
+export const categories = [
+  {
+    id: 1,
+    name: 'Rings',
+    slug: 'rings',
+    icon: Ring,
+    description: 'Engagement rings, wedding bands, and fashion rings',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800'
+  },
+  {
+    id: 2,
+    name: 'Necklaces',
+    slug: 'necklaces',
+    icon: Crown,
+    description: 'Pendants, chains, and statement necklaces',
+    image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?auto=format&fit=crop&w=800'
+  },
+  {
+    id: 3,
+    name: 'Watches',
+    slug: 'watches',
+    icon: Watch,
+    description: 'Luxury timepieces and smart watches',
+    image: 'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?auto=format&fit=crop&w=800'
+  },
+  {
+    id: 4,
+    name: 'Gemstones',
+    slug: 'gemstones',
+    icon: GemIcon,
+    description: 'Precious and semi-precious stones',
+    image: 'https://images.unsplash.com/photo-1583937443351-f97a79a8686c?auto=format&fit=crop&w=800'
+  }
+];
+
+
 export const shopAddress =
   "21-3-88, Chelapuara, Ghansi Bazar, Hyderabad 500 002";
 
@@ -92,3 +129,4 @@ export const shopOpenTime = {
   weekDays: "Mon - Sat: 11:00 AM - 10:00 PM",
   weekend: "Sun: 11:00 AM - 5:00 PM",
 };
+export const whatAppNumber = "914066514933";

@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Weight } from "lucide-react";
 import { FaRupeeSign } from "react-icons/fa";
 import { addToCart } from "../../store/slices/cartSlice";
+import { whatAppNumber } from "../../mockData";
 
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -18,8 +19,12 @@ export default function ProductCard({ product }) {
   //   window.open(whatsappUrl, "_blank");
   // };
 
+  const greetingMessage = "Hello! I'd like to inquire about your services.";
+
   const handleWhatsAppClick = () => {
-    window.open("https://wa.me/914066514933", "_blank");
+    const encodedMessage = encodeURIComponent(greetingMessage);
+    const whatsappURL = `https://wa.me/${whatAppNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank");
   };
 
   return (
