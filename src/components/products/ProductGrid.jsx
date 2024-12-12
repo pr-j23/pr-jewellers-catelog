@@ -24,7 +24,7 @@ export default function ProductGrid({ type }) {
       <h2 className="text-3xl font-serif text-center mb-8">
         Featured Collections
       </h2>
-      {type !== "home" && (
+      {!type && (
         <>
           <ProductFilter
             selectedCategory={selectedCategory}
