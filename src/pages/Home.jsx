@@ -8,7 +8,7 @@ export default function Home() {
     <>
       <MetalPrices />
       <Carousel />
-      <ProductGrid />
+      <ProductGrid type="Home" />
     </>
   );
 }
