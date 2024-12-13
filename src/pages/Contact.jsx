@@ -1,5 +1,6 @@
-import React from 'react';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import React from "react";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { mobileNum, shopAddress, shopEmailId, shopOpenTime } from "../mockData";
 
 export default function Contact() {
   return (
@@ -55,22 +56,21 @@ export default function Contact() {
             <div className="space-y-4">
               <div className="flex items-center">
                 <MapPin className="h-5 w-5 text-purple-600 mr-3" />
-                <span>123 Luxury Lane, Beverly Hills, CA 90210</span>
+                <span className="text-balance">{shopAddress}</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-5 w-5 text-purple-600 mr-3" />
-                <span>+1 (555) 123-4567</span>
+                <span>{mobileNum}</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 text-purple-600 mr-3" />
-                <span>contact@luxejewels.com</span>
+                <span>{shopEmailId}</span>
               </div>
               <div className="flex items-start">
                 <Clock className="h-5 w-5 text-purple-600 mr-3 mt-1" />
                 <div>
-                  <p>Monday - Friday: 10:00 AM - 8:00 PM</p>
-                  <p>Saturday: 10:00 AM - 6:00 PM</p>
-                  <p>Sunday: 12:00 PM - 5:00 PM</p>
+                  <p>{shopOpenTime.weekDays}</p>
+                  <p>{shopOpenTime.weekend}</p>
                 </div>
               </div>
             </div>

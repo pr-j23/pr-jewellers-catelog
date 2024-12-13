@@ -1,7 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { categories } from "../mockData";
 
 export default function Category() {
+  const navigate = useNavigate(); 
+  const handleExplore = (slug) => {
+    navigate(`/products/${slug}`);
+  };
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-serif text-center mb-12">Our Categories</h1>
@@ -28,7 +33,10 @@ export default function Category() {
               </div>
               <div className="p-6">
                 <p className="text-gray-600">{category.description}</p>
-                <button className="mt-4 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors">
+                <button
+                  className="mt-4 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition-colors"
+                  onClick={() => handleExplore(category.slug)}
+                >
                   Explore Collection
                 </button>
               </div>
