@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductCard from "./ProductCard";
 import { selectAllProducts } from "../../store/slices/productsSlice";
-import { sortProducts } from "../../utils";
+import { sortProducts, useProducts } from "../../utils";
 import ProductFilter from "./ProductFilter";
 
-export default function ProductGrid({ type }) {
-  const products = useSelector(selectAllProducts);
+export default function ProductGrid({ type, categorySlug, noHeading }) {
+  const allProducts = useSelector(selectAllProducts);
+  const products = useProducts(categorySlug, allProducts);
+
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedSort, setSelectedSort] = useState("default");
 
@@ -21,10 +23,12 @@ export default function ProductGrid({ type }) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 className="text-3xl font-serif text-center mb-8">
-        Featured Collections
-      </h2>
-      {!type && (
+      {!noHeading && (
+        <h2 className="text-3xl font-serif text-center mb-8">
+          Featured Collections
+        </h2>
+      )}
+      {type && (
         <>
           <ProductFilter
             selectedCategory={selectedCategory}

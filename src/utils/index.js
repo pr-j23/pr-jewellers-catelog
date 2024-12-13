@@ -24,7 +24,7 @@ export const constructWhatsAppURL = () => {
   return `${baseURL}&text=${encodedMessage}`;
 };
 
-export const useProducts = (productCategory) => {
+export const useProducts = (productCategory, products) => {
   // If a product category is provided
   if (productCategory) {
     // Filter the products array to return only those products that match the specified category
@@ -35,18 +35,17 @@ export const useProducts = (productCategory) => {
   return products;
 };
 
-
 export const sortProducts = (products, sortType) => {
   const sortedProducts = [...products];
-  
+
   switch (sortType) {
-    case 'price-low-high':
+    case "price-low-high":
       return sortedProducts.sort((a, b) => a.price - b.price);
-    case 'price-high-low':
+    case "price-high-low":
       return sortedProducts.sort((a, b) => b.price - a.price);
-    case 'name-a-z':
+    case "name-a-z":
       return sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
-    case 'name-z-a':
+    case "name-z-a":
       return sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
     default:
       return sortedProducts;

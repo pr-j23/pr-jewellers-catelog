@@ -5,9 +5,10 @@ import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import Category from './pages/Category';
-// import CategoryProducts from './pages/CategoryProducts';
+
 import About from './pages/About';
 import Contact from './pages/Contact';
+import CategoryProducts from './pages/CategoryProducts';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/category" element={<Category />} />
-          {/* <Route path="/products/:categorySlug" element={<CategoryProducts />} /> */}
+          <Route path="/products/:categorySlug" element={<CategoryProducts />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
