@@ -9,9 +9,10 @@ const navItems = [
   { label: "Contact Us", path: "/contact" },
 ];
 
-export default function NavLinks({ className = "" }) {
+export default function NavLinks({ className = "", toggleMobileMenu }) {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    toggleMobileMenu?.();
   };
 
   return (
