@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, GemIcon } from 'lucide-react';
-import NavLinks from './NavLinks';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X, GemIcon } from "lucide-react";
+import NavLinks from "./NavLinks";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,7 +27,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             className="md:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMobileMenu}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -41,7 +43,10 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg">
-            <NavLinks className="block px-3 py-2" />
+            <NavLinks
+              className="block px-3 py-2"
+              toggleMobileMenu={toggleMobileMenu}
+            />
           </div>
         </div>
       )}
