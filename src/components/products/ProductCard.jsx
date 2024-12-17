@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Weight } from "lucide-react";
 import { FaRupeeSign } from "react-icons/fa";
 import { addToCart } from "../../store/slices/cartSlice";
+import { constructWhatsAppURL } from "../../utils";
 
 export default function ProductCard({ product }) {
   const dispatch = useDispatch();
