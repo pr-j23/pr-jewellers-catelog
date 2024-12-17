@@ -18,10 +18,10 @@ export const constructWhatsAppURL = () => {
 
   const isMobile = isMobileDevice();
   const baseURL = isMobile
-    ? `https://wa.me/${whatAppNumber}`
-    : `https://web.whatsapp.com/send/?phone=${whatAppNumber}`;
+    ? `https://wa.me/${whatAppNumber}?`
+    : `https://web.whatsapp.com/send/?phone=${whatAppNumber}&`;
 
-  return `${baseURL}&text=${encodedMessage}`;
+  return `${baseURL}text=${encodedMessage}`;
 };
 
 export const useProducts = (productCategory, products) => {

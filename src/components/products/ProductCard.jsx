@@ -14,6 +14,7 @@ export default function ProductCard({ product }) {
 
   const handleWhatsAppClick = () => {
     const whatsappURL = constructWhatsAppURL();
+    console.log(whatsappURL, "whatsappURL");
     window.open(whatsappURL, "_blank");
   };
 
