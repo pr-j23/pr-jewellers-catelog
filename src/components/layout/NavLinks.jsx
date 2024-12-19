@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -10,6 +11,10 @@ const navItems = [
 ];
 
 export default function NavLinks({ className = "", toggleMobileMenu }) {
+  const { user, logout } = useAuth();
+  const linkClasses = `${className} text-gray-600 hover:text-purple-600 transition-colors`;
+  const buttonClasses = "px-4 py-2 rounded text-white";
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     toggleMobileMenu?.();
@@ -17,16 +22,42 @@ export default function NavLinks({ className = "", toggleMobileMenu }) {
 
   return (
     <>
-      {navItems.map((item) => (
+      {navItems.map(({ label, path }) => (
         <Link
-          key={item.label}
-          to={item.path}
+          key={label}
+          to={path}
           onClick={handleScrollToTop}
-          className={`${className} text-gray-600 hover:text-purple-600 transition-colors`}
+          className={linkClasses}
         >
-          {item.label}
+          {label}
         </Link>
       ))}
+
+      {user?.role === "admin" && (
+        <Link
+          to="/admin/add-product"
+          onClick={handleScrollToTop}
+          className={linkClasses}
+        >
+          Add Product
+        </Link>
+      )}
+
+      {user ? (
+        <button
+          onClick={() => {
+            logout();
+            toggleMobileMenu?.();
+          }}
+          className="text-gray-600 hover:text-red-600 transition-colors"
+        >
+          Logout
+        </button>
+      ) : (
+        <Link to="/login" onClick={handleScrollToTop} className={linkClasses}>
+          Login
+        </Link>
+      )}
     </>
   );
 }
