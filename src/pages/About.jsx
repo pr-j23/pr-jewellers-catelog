@@ -1,42 +1,49 @@
-import React from 'react';
-import { Award, Shield, Heart, Users } from 'lucide-react';
+import React from "react";
+import { Award, Shield, Heart, Sparkles } from "lucide-react";
 
 const features = [
   {
     icon: Award,
-    title: 'Expert Craftsmanship',
+    title: "Expert Craftsmanship",
     description:
-      'Each piece is meticulously crafted by our master jewelers with decades of experience.',
+      "Each piece is meticulously crafted by our master jewelers with decades of experience.",
   },
   {
     icon: Shield,
-    title: 'Quality Assurance',
+    title: "Quality Assurance",
     description:
-      'All our jewelry pieces undergo rigorous quality checks and come with certification.',
+      "All our jewelry pieces undergo rigorous quality checks and come with certification.",
   },
   {
     icon: Heart,
-    title: 'Customer Satisfaction',
+    title: "Customer Satisfaction",
     description:
-      'We pride ourselves on providing exceptional service and building lasting relationships.',
+      "We pride ourselves on providing exceptional service and building lasting relationships.",
   },
   {
-    icon: Users,
-    title: 'Family Legacy',
+    icon: Sparkles,
+    title: "Innovative Design",
     description:
-      'Three generations of jewelry expertise, serving our community since 1970.',
+      "As a first-generation jeweler, we bring fresh, creative approaches to every piece, ensuring unique designs that reflect your style.",
   },
+  // {
+  //   icon: Users,
+  //   title: 'Family Legacy',
+  //   description:
+  //     'Three generations of jewelry expertise, serving our community since 1970.',
+  // },
 ];
 
 export default function About() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-serif mb-4">About Luxe Jewels</h1>
+        <h1 className="text-4xl font-serif mb-4">About Pavan Jewellers</h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
-          For over 50 years, we've been crafting timeless pieces that celebrate
-          life's most precious moments. Our commitment to excellence and
-          attention to detail has made us a trusted name in fine jewelry.
+          For more than a decade, we have been creating exquisite silver jewelry
+          that honors life’s most cherished moments. Our dedication to quality
+          and meticulous attention to detail have established us as a trusted
+          name in both wholesale and retail fine jewelry.
         </p>
       </div>
 
@@ -51,16 +58,18 @@ export default function About() {
         <div className="flex flex-col justify-center">
           <h2 className="text-3xl font-serif mb-6">Our Story</h2>
           <p className="text-gray-600 mb-4">
-            Founded in 1970, Luxe Jewels began as a small family workshop with a
-            passion for creating beautiful, handcrafted jewelry. Today, we
-            continue that tradition of excellence, combining time-honored
-            techniques with modern innovation.
+            Founded in 2014, Pavan Jewellers began as a small family workshop
+            driven by a passion for creating beautiful, handcrafted jewelry.
+            Today, we continue this tradition of excellence by combining
+            time-honored techniques with modern innovation. We specialize in
+            custom designs, taking orders and crafting unique pieces tailored to
+            our customers’ individual requirements.
           </p>
           <p className="text-gray-600">
-            Our team of master craftsmen and certified gemologists work together
-            to create pieces that not only capture the eye but also tell a
-            story. Each creation is a testament to our dedication to quality and
-            our love for the art of jewelry making.
+            Our skilled artisans and certified gemologists collaborate to craft
+            pieces that are not only visually stunning but also rich in meaning.
+            Each creation reflects our unwavering commitment to quality and our
+            deep appreciation for the art of jewelry making.
           </p>
         </div>
       </div>
