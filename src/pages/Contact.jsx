@@ -22,7 +22,7 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setSuccessMessage("");
-  
+
     try {
       const response = await axios.post(
         `https://api.mailgun.net/v3/${MAILGUN_DOMAIN_NAME}/messages`,
@@ -42,18 +42,20 @@ export default function Contact() {
           },
         }
       );
-  
+
       console.log("Email sent successfully!", response.data);
       setSuccessMessage("Your message has been sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Failed to send message:", error.response?.data || error.message);
+      console.error(
+        "Failed to send message:",
+        error.response?.data || error.message
+      );
       setSuccessMessage("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
