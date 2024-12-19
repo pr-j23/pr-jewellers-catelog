@@ -5,15 +5,16 @@ import toast from "react-hot-toast";
 import { useProducts } from "../utils";
 
 export default function AddProduct() {
-  const [product, setProduct] = useState({
+  const initialVal = {
     name: "",
     price: "",
     description: "",
     image: "https://via.placeholder.com/200",
-  });
+  };
+  const [product, setProduct] = useState(initialVal);
 
   const navigate = useNavigate();
-  const { addProduct } = useProducts();
+  //   const { addProduct } = useProducts();
   const { user } = useAuth();
 
   // Redirect if not admin
@@ -24,12 +25,13 @@ export default function AddProduct() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProduct({
-      ...product,
-      price: parseFloat(product.price),
-    });
+    // addProduct({
+    //   ...product,
+    //   price: parseFloat(product.price),
+    // });
     toast.success("Product added successfully!");
-    navigate("/");
+    setProduct(initialVal);
+    // navigate("/");
   };
 
   return (
