@@ -3,9 +3,6 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import axios from "axios";
 import { mobileNum, shopAddress, shopEmailId, shopOpenTime } from "../mockData";
 
-const MAILGUN_API_KEY = "7d7ad251657d493767e2245cf4437894-0920befd-9884a6ff";
-const MAILGUN_DOMAIN_NAME =
-  "sandbox858bccc008104400819401843e3d74f9.mailgun.org";
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -26,35 +23,38 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     setSuccessMessage("");
-
+  
     try {
       const response = await axios.post(
         `https://api.mailgun.net/v3/${MAILGUN_DOMAIN_NAME}/messages`,
-        null,
+        new URLSearchParams({
+          from: `${formData.name} <${formData.email}>`,
+          to: shopEmailId,
+          subject: "Contact Form Submission",
+          text: formData.message,
+        }).toString(),
         {
           auth: {
             username: "api",
-            password: MAILGUN_API_KEY, // your Mailgun API key
+            password: MAILGUN_API_KEY,
           },
-          params: {
-            from: `${formData.name} <${formData.email}>`,
-            to: shopEmailId, // Mailgun email address you own
-            subject: "Contact Form Submission",
-            text: formData.message,
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
           },
         }
       );
-
+  
       console.log("Email sent successfully!", response.data);
       setSuccessMessage("Your message has been sent successfully!");
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Failed to send message.", error);
+      console.error("Failed to send message:", error.response?.data || error.message);
       setSuccessMessage("Failed to send message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
+  
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
