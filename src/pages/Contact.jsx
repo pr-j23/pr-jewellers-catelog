@@ -3,6 +3,58 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { mobileNum, shopAddress, shopEmailId, shopOpenTime } from "../mockData";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSuccessMessage("");
+  
+    try {
+      const response = await axios.post(
+        `https://api.mailgun.net/v3/${MAILGUN_DOMAIN_NAME}/messages`,
+        new URLSearchParams({
+          from: `${formData.name} <${formData.email}>`,
+          to: shopEmailId,
+          subject: "Contact Form Submission",
+          text: formData.message,
+        }).toString(),
+        {
+          auth: {
+            username: "api",
+            password: MAILGUN_API_KEY,
+          },
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
+  
+      console.log("Email sent successfully!", response.data);
+      setSuccessMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send message:", error.response?.data || error.message);
+      setSuccessMessage("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-serif text-center mb-12">Contact Us</h1>
