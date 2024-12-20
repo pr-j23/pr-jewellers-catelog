@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, GemIcon } from "lucide-react";
 import NavLinks from "./NavLinks";
+import logo from "../../assets/images/pr-logo.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,7 +14,8 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
-            <GemIcon className="h-8 w-8 text-purple-600" />
+            {/* <GemIcon className="h-8 w-8 text-purple-600" /> */}
+            <img src={logo} alt="logo" className="w-14" />
             <span className="ml-2 text-xl font-serif font-semibold">
               Pavan Jewellers
             </span>

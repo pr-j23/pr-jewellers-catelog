@@ -133,7 +133,7 @@ export default function AddProduct() {
               setProduct({ ...product, category: e.target.value })
             }
           />
-        </div>
+        </div>  
         <button
           type="submit"
           className={`bg-purple-600 hover:bg-purple-700 transition-colors text-white font-bold py-2 px-4 rounded-md ${
