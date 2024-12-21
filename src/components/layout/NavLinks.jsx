@@ -13,7 +13,6 @@ const navItems = [
 export default function NavLinks({ className = "", toggleMobileMenu }) {
   const { user, logout } = useAuth();
   const linkClasses = `${className} text-gray-600 hover:text-purple-600 transition-colors`;
-  const buttonClasses = "px-4 py-2 rounded text-white";
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -55,7 +54,7 @@ export default function NavLinks({ className = "", toggleMobileMenu }) {
         </button>
       ) : (
         <Link to="/login" onClick={handleScrollToTop} className={linkClasses}>
-          Login
+          Admin
         </Link>
       )}
     </>

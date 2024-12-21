@@ -26,8 +26,8 @@ function ProductFilter({
   ];
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md mb-8 flex flex-wrap justify-center gap-8">
-      <div className="flex flex-col gap-2 min-w-[200px]">
+    <div className="bg-white p-6 rounded-lg shadow-md mb-8 grid grid-cols-2 sm:flex sm:justify-center gap-8">
+      <div className="flex flex-col gap-2 max-w-52 sm:min-w-48">
         <label
           htmlFor="category"
           className="font-semibold text-gray-700 text-sm"
@@ -38,7 +38,7 @@ function ProductFilter({
           id="category"
           value={selectedCategory}
           onChange={(e) => onCategoryChange(e.target.value)}
-          className="px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:border-blue-500 transition duration-200 min-w-[200px]"
+          className="px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:border-blue-500 transition duration-200"
         >
           {categories.map((category) => (
             <option key={category.value} value={category.value}>
@@ -48,7 +48,7 @@ function ProductFilter({
         </select>
       </div>
 
-      <div className="flex flex-col gap-2 min-w-[200px]">
+      <div className="flex flex-col gap-2 max-w-52 sm:min-w-48">
         <label htmlFor="sort" className="font-semibold text-gray-700 text-sm">
           Sort By
         </label>
@@ -56,7 +56,7 @@ function ProductFilter({
           id="sort"
           value={selectedSort}
           onChange={(e) => onSortChange(e.target.value)}
-          className="px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:border-blue-500 transition duration-200 min-w-[200px]"
+          className="px-3 py-2 border border-gray-300 rounded-md text-gray-900 focus:outline-none focus:border-blue-500 transition duration-200"
         >
           {sortOptions.map((option) => (
             <option key={option.value} value={option.value}>
