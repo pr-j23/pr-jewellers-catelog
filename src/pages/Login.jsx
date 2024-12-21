@@ -1,67 +1,94 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
-import toast from 'react-hot-toast';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import classNames from "classnames";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
   const navigate = useNavigate();
   const { login } = useAuth();
 
+  const fields = [
+    {
+      id: "email",
+      label: "Email",
+      type: "email",
+      placeholder: "Enter your email",
+    },
+    {
+      id: "password",
+      label: "Password",
+      type: "password",
+      placeholder: "Enter your password",
+    },
+  ];
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const isFormValid =
+    formData.email.trim() === "admin@example.com" &&
+    formData.password.trim() === "admin123";
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (login(email, password)) {
-      toast.success('Logged in successfully!');
-      navigate('/');
+
+    if (isFormValid && login(formData.email, formData.password)) {
+      toast.success("Logged in successfully!");
+      navigate("/");
     } else {
-      toast.error('Invalid credentials');
+      toast.error("Invalid credentials. Please try again.");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Use admin@example.com / admin123 for admin access
-          </p>
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
+    <div className="flex justify-center w-full px-4 py-8">
+      <div className="w-full max-w-md">
+        <h1 className="mb-8 text-3xl font-bold text-center">Admin Use Only</h1>
+        <p className="mb-6 text-center text-gray-600">
+          Use <span className="font-bold">admin@example.com</span> and{" "}
+          <span className="font-bold">admin123</span> for demo access.
+        </p>
+        <form onSubmit={handleSubmit} className="grid gap-6">
+          {fields.map((field) => (
+            <div key={field.id}>
+              <label
+                htmlFor={field.id}
+                className="block mb-2 font-bold text-gray-700"
+              >
+                {field.label}
+              </label>
               <input
-                type="email"
+                id={field.id}
+                type={field.type}
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                placeholder={field.placeholder}
+                className="w-full px-3 py-2 text-gray-700 border rounded shadow focus:outline-none focus:shadow-outline"
+                value={formData[field.id]}
+                onChange={handleChange}
               />
             </div>
-            <div>
-              <input
-                type="password"
-                required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Sign in
-            </button>
-          </div>
+          ))}
+          <button
+            type="submit"
+            className={classNames(
+              "py-2 px-4 my-4 font-bold text-white transition-colors rounded-md bg-purple-600",
+              isFormValid
+                ? "hover:bg-purple-700"
+                : "opacity-50 cursor-not-allowed"
+            )}
+            disabled={!isFormValid}
+            aria-disabled={!isFormValid}
+          >
+            Sign In
+          </button>
         </form>
       </div>
     </div>
