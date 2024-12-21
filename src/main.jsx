@@ -6,12 +6,18 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import App from "./App";
 import "./index.css";
+import { AuthProvider } from "./context/AuthContext";
+import { GlobalProvider } from "./context/GlobalContext";
 
 createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-      <Toaster position="top-right" />
-    </BrowserRouter>
-  </Provider>
+  <BrowserRouter>
+    <AuthProvider>
+      <GlobalProvider>
+        <Provider store={store}>
+          <App />
+          <Toaster position="top-right" />
+        </Provider>
+      </GlobalProvider>
+    </AuthProvider>
+  </BrowserRouter>
 );

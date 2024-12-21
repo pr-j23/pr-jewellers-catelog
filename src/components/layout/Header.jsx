@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, GemIcon } from "lucide-react";
 import NavLinks from "./NavLinks";
 import logo from "../../assets/images/pr-logo.png";
+import MetalPrices from "../home/MetalPrices";
+import { useGlobalValue } from "../../context/GlobalContext";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const { renderMetalPrices } = useGlobalValue();
+
   return (
     <header className="bg-white shadow-md fixed w-full top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center">
             {/* <GemIcon className="h-8 w-8 text-purple-600" /> */}
@@ -52,6 +56,7 @@ export default function Header() {
           </div>
         </div>
       )}
+      {renderMetalPrices && <MetalPrices />}
     </header>
   );
 }
