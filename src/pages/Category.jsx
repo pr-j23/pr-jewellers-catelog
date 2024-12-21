@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { categories } from "../mockData";
 
 export default function Category() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const handleExplore = (slug) => {
     navigate(`/products/${slug}`);
   };
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="w-full px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-4xl font-serif text-center mb-12">Our Categories</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {categories.map((category) => {
           const IconComponent = category.icon;
           return (

@@ -27,9 +27,9 @@ export default function ProductCard({ product }) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-6">
-        <h3 className="text-xl font-serif mb-2">{product.name}</h3>
-        <p className="text-gray-600 mb-4">{product.description}</p>
+      <div className="p-4">
+        <h3 className="text-xl font-serif mb-2 truncate">{product.name}</h3>
+        <p className="text-gray-600 mb-4 truncate">{product.description}</p>
         <div className="flex justify-between items-center">
           <div className="flex items-center text-gray-700">
             <Weight className="h-5 w-5 mr-1" />
